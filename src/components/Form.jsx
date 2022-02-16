@@ -4,13 +4,12 @@ function Form() {
   return (
     <form>
       <input type="text" />
-      <textarea type="text" />
-      <select>
-        <option value="">Pendente</option>
-        <option value="">Em andamento</option>
-        <option value="">Pronto</option>
-      </select>
       <button>Adiciona tarefa</button>
+      <select>
+        <option value="">Tarefa</option>
+        <option value="">Data de criação</option>
+        <option value="">Status</option>
+      </select>
     </form>
   );
 }
