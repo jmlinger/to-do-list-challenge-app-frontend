@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Form() {
+  const [task, setTask] = useState('');
+
+  function handleChange({ target: { value } }) {
+    setTask(value);
+  }
+
   return (
     <form>
-      <input type="text" />
+      <input
+        data-testid="task-input"
+        type="text"
+        name="task"
+        placeholder="Tarefa"
+        onChange={ handleChange }
+      />
       <button>Adiciona tarefa</button>
       <select>
         <option value="">Tarefa</option>

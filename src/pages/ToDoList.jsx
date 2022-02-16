@@ -17,7 +17,7 @@ function ToDoList() {
         </tr>
       </thead>
       <tbody>
-        [<Table />]
+        {  <Table /> }
       </tbody>
     </table>
     </div>
