@@ -9,6 +9,7 @@ function allRoutes() {
     <Routes>
       <Route path="/" element={ <Login /> } />
       <Route path="/todolist" element={ <ToDoList /> } />
+      {/* <Route path="*" element={ <Error /> } /> */}
     </Routes>
   );
 }
