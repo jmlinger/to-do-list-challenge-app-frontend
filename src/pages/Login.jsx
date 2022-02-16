@@ -24,7 +24,8 @@ function Login() {
               // onChange={ handleChange }
             />
             <Link to="/todolist">
-              <button id="login-button"
+              <button 
+                data-testid="login-button"
                 type="submit"
                 // disabled={ validateEmail() }
                 // onClick={ () => sendEmail(email) }
