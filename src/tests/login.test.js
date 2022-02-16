@@ -34,7 +34,7 @@ describe('Testes unitários da página de login.', () => {
     expect(loginButton).toBeDisabled();
   });
 
-  test('Verifica se ao preencher o os campos email e senha o botão é habilitado', () => {
+  test('Verifica se ao preencher o os campos email e senha corretamente o botão é habilitado', () => {
     render(<App/>, { wrapper: MemoryRouter });
 
     const emailInput = screen.getByTestId(emailId);
