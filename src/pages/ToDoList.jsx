@@ -16,7 +16,7 @@ function ToDoList() {
             <th>Tarefa</th>
             <th>Data de criação</th>
             <th>Status</th>
-            <th>Editar/Deletar</th>
+            <th>Editar/Excluir</th>
           </tr>
         </thead>
         <tbody>

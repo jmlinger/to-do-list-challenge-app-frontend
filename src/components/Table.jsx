@@ -1,6 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { removeTask } from '../redux/slices/tasks';
 
-function Table({ task: { name, createdUpdatedAt, status }}) {
+function Table({ task: { id, name, createdUpdatedAt, status }}) {
+  const dispatch = useDispatch();
+
   return (
     <tr>
       <td>{ name }</td>
@@ -16,8 +20,9 @@ function Table({ task: { name, createdUpdatedAt, status }}) {
         <button
           type="button"
           id="delete-task-btn"
+          onClick={ () => dispatch(removeTask(id)) }
         >
-          Deletar
+          Excluir
         </button>
       </td>
     </tr>
