@@ -1,16 +1,11 @@
 import React from 'react';
 
-function Table(task) {
+function Table({ task: { name, createdUpdatedAt, status }}) {
   return (
     <tr>
-      <td>{ task }</td>
-      <td>
-        <select name="Status" id="select-status">
-          <option selected>Pendente</option>
-          <option>Em endamento</option>
-          <option>Concluída</option>
-        </select>
-      </td>
+      <td>{ name }</td>
+      <td>{ createdUpdatedAt }</td>
+      <td>{ status }</td>
       <td>
         <button
           type="button"

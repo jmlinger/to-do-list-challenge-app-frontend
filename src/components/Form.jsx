@@ -19,7 +19,6 @@ function Form() {
       name: value,
       createdUpdatedAt: moment().format("DD-MM-YYYY hh:mm:ss"),
     });
-    console.log(task)
   }
   
   function handleClick(state) {

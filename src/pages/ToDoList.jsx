@@ -1,9 +1,12 @@
 import React from 'react';
 import './ToDoList.css'
 import Form from '../components/Form';
-// import Table from '../components/Table';
+import Table from '../components/Table';
+import { useSelector } from 'react-redux';
 
 function ToDoList() {
+  const taskList = useSelector(({ tasks }) => tasks.taskList);
+
   return (
     <div id="form-body">
       <Form />
@@ -17,7 +20,8 @@ function ToDoList() {
           </tr>
         </thead>
         <tbody>
-          {/* {  <Table /> } */}
+          {  taskList.map((task) =>
+            <Table key={ task.id } task={ task }/>) }
         </tbody>
       </table>
     </div>
