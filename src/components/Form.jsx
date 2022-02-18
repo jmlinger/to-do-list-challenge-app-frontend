@@ -8,7 +8,7 @@ function Form() {
   
   const [task, setTask] = useState({
     id: 1,
-    name: '',
+    taskName: '',
     createdUpdatedAt: '',
     status: 'Pendente',
   });
@@ -16,7 +16,7 @@ function Form() {
   function handleChange({ target: { value } }) {
     setTask({
       ...task,
-      name: value,
+      taskName: value,
       createdUpdatedAt: moment().format("DD-MM-YYYY hh:mm:ss"),
     });
   }
@@ -27,7 +27,7 @@ function Form() {
     setTask({
       ...task,
       id: task.id + 1,
-      name: '',
+      taskName: '',
       createdUpdatedAt: '',
     });
   }
@@ -38,7 +38,7 @@ function Form() {
         data-testid="task-input"
         type="text"
         name="task"
-        value={ task.name }
+        value={ task.taskName }
         placeholder="Tarefa"
         onChange={ handleChange }
       />
