@@ -21,15 +21,17 @@ function Form() {
     });
   }
   
-  function handleClick(state) {
-    dispatch(addTask(state));
+  function createTask() {
+    if (task.taskName) {
+      dispatch(addTask(task));
 
-    setTask({
-      ...task,
-      id: task.id + 1,
-      taskName: '',
-      createdUpdatedAt: '',
-    });
+      setTask({
+        ...task,
+        id: task.id + 1,
+        taskName: '',
+        createdUpdatedAt: '',
+      });
+    }
   }
 
   return (
@@ -44,7 +46,7 @@ function Form() {
       />
       <button
         type="button"
-        onClick={ () => handleClick(task) }
+        onClick={ () => createTask() }
       >
         Adiciona tarefa
       </button>
