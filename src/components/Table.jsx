@@ -26,13 +26,17 @@ function Table({ task: { id, taskName, createdUpdatedAt, status }}) {
         ...task,
         createdUpdatedAt: moment().format("DD-MM-YYYY hh:mm:ss"),
       });
+
       dispatch(updateTask(task))
     }
-    // reatribui o valor de taskName para seu valor global.
+
+    /* Reatribui o valor de taskName para seu valor global. Isso evita que a tarefa que sofreu uma tentativa
+    de ser atualizada com nome vazio, ao entrar no modo de edição novamente, esteja preenchida com o valor anterior. */
     setTask({
       ...task,
       taskName,
     });
+
     setEditOn(false)
   }
 
