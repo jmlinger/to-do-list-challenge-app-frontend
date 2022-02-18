@@ -28,12 +28,14 @@ function Table({ task: { id, taskName, createdUpdatedAt, status }}) {
       }));
     }
 
-    /* Reatribui o valor de taskName para seu valor global. Isso evita que a tarefa que sofreu uma tentativa
-    de ser atualizada com nome vazio, ao entrar no modo de edição novamente, esteja preenchida com o valor anterior. */
-    setTask({
-      ...task,
-      taskName,
-    });
+    /* Reatribui o valor de taskName para seu valor global, caso o campo esteja vazio. Isso evita que a tarefa que sofreu uma tentativa
+    de ser atualizada com nome vazio, ao entrar no modo de edição novamente, esteja com o valor do campo vazio. */
+    if (!task.taskName) {
+      setTask({
+        ...task,
+        taskName,
+      });
+    }
 
     setEditOn(false);
   }
