@@ -21,11 +21,18 @@ function Table({ task: { id, taskName, createdUpdatedAt, status }}) {
   }
 
   function finishTaskEditing() {
+    if (task.taskName) {
+      setTask({
+        ...task,
+        createdUpdatedAt: moment().format("DD-MM-YYYY hh:mm:ss"),
+      });
+      dispatch(updateTask(task))
+    }
+    // reatribui o valor de taskName para seu valor global.
     setTask({
       ...task,
-      createdUpdatedAt: moment().format("DD-MM-YYYY hh:mm:ss"),
+      taskName,
     });
-    dispatch(updateTask(task))
     setEditOn(false)
   }
 
