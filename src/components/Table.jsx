@@ -21,13 +21,11 @@ function Table({ task: { id, taskName, createdUpdatedAt, status }}) {
   }
 
   function finishTaskEditing() {
-    if (task.taskName) {
-      setTask({
+    if (task.taskName && (task.taskName !== taskName || task.status !== status)) {
+      dispatch(updateTask({ 
         ...task,
-        createdUpdatedAt: moment().format("DD-MM-YYYY hh:mm:ss"),
-      });
-
-      dispatch(updateTask(task))
+        createdUpdatedAt: moment().format("DD-MM-YYYY hh:mm:ss")
+      }));
     }
 
     /* Reatribui o valor de taskName para seu valor global. Isso evita que a tarefa que sofreu uma tentativa
@@ -37,14 +35,14 @@ function Table({ task: { id, taskName, createdUpdatedAt, status }}) {
       taskName,
     });
 
-    setEditOn(false)
+    setEditOn(false);
   }
 
   function deleteThisTask() {
     dispatch(removeTask(id));
   }
 
-  const taskEditOpen = (
+  const renderTaskEditOpen = (
       <tr>
         <td>
           <input
@@ -78,7 +76,7 @@ function Table({ task: { id, taskName, createdUpdatedAt, status }}) {
       </tr>
     );
 
-  const taskEditClose = (
+  const renderTaskEditClose = (
       <tr>
         <td>{ taskName }</td>
         <td>{ createdUpdatedAt }</td>
@@ -102,8 +100,8 @@ function Table({ task: { id, taskName, createdUpdatedAt, status }}) {
       </tr>
     );
 
-  if (editOn) return taskEditOpen;
-  return taskEditClose;
+  if (editOn) return renderTaskEditOpen;
+  return renderTaskEditClose;
 }
 
 export default Table;
