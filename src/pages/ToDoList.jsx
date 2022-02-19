@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 function ToDoList() {
   const taskList = useSelector(({ tasks }) => tasks.taskList);
+  const orderBy = useSelector(({ tasks }) => tasks.orderBy);
 
   return (
     <div id="form-body">
@@ -20,7 +21,7 @@ function ToDoList() {
           </tr>
         </thead>
         <tbody>
-          {  taskList.map((task) =>
+          { [...taskList].sort((a, b) => a[orderBy] > b[orderBy] ? 1 : -1).map((task) =>
             <Table key={ task.id } task={ task }/>) }
         </tbody>
       </table>

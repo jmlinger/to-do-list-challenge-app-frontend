@@ -1,7 +1,7 @@
 import moment from 'moment';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTask } from '../redux/slices/tasks';
+import { addTask, changeOrder } from '../redux/slices/tasks';
 
 function Form() {
   const dispatch = useDispatch();
@@ -13,12 +13,17 @@ function Form() {
     status: 'Pendente',
   });
 
-  function handleChange({ target: { value } }) {
-    setTask({
-      ...task,
-      taskName: value,
-      createdUpdatedAt: moment().format("DD-MM-YYYY hh:mm:ss"),
-    });
+  function handleChange({ target: { name, value } }) {
+    if (name === 'orderBy') {
+      dispatch(changeOrder(value));
+    }
+    if (name !== 'orderBy') {
+      setTask({
+        ...task,
+        taskName: value,
+        createdUpdatedAt: moment().format("DD-MM-YYYY hh:mm:ss"),
+      });
+    }
   }
   
   function createTask() {
@@ -50,10 +55,11 @@ function Form() {
       >
         Adiciona tarefa
       </button>
-      <select>
-        <option value="">Tarefa</option>
-        <option value="">Data de criação</option>
-        <option value="">Status</option>
+
+      <select name="orderBy" onChange={ handleChange } >
+        <option value="createdUpdatedAt">Data de criação</option>
+        <option value="taskName">Tarefa</option>
+        <option value="status">Status</option>
       </select>
     </form>
   );
