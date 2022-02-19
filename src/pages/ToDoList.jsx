@@ -14,10 +14,11 @@ function ToDoList() {
       <table>
         <thead>
           <tr>
-            <th>Tarefa</th>
-            <th>Data de criação</th>
+            <th>Nome da Tarefa</th>
             <th>Status</th>
-            <th>Editar/Excluir</th>
+            <th>Criação/Atualização</th>
+            <th>Editar tarefa</th>
+            <th>Excluir tarefa</th>
           </tr>
         </thead>
         <tbody>

@@ -9,8 +9,8 @@ function Form() {
   const [task, setTask] = useState({
     id: 1,
     taskName: '',
-    createdUpdatedAt: '',
     status: 'Pendente',
+    createdUpdatedAt: '',
   });
 
   function handleChange({ target: { name, value } }) {
@@ -55,12 +55,14 @@ function Form() {
       >
         Adiciona tarefa
       </button>
-
+    <label>
+      Ordernar por:
       <select name="orderBy" onChange={ handleChange } >
         <option value="createdUpdatedAt">Data de criação</option>
-        <option value="taskName">Tarefa</option>
+        <option value="taskName">Nome da Tarefa</option>
         <option value="status">Status</option>
       </select>
+    </label>
     </form>
   );
 }

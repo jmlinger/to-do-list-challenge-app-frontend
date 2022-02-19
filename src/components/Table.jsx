@@ -9,8 +9,8 @@ function Table({ task: { id, taskName, createdUpdatedAt, status }}) {
   const [task, setTask] = useState({
     id,
     taskName,
-    createdUpdatedAt,
     status,
+    createdUpdatedAt,
   });
 
   function handleChange({ target: { name, value } }) {
@@ -54,7 +54,6 @@ function Table({ task: { id, taskName, createdUpdatedAt, status }}) {
             onChange={ handleChange }
           />
         </td>
-        <td>{ createdUpdatedAt }</td>
         <td>
           <select
             name="status"
@@ -66,6 +65,7 @@ function Table({ task: { id, taskName, createdUpdatedAt, status }}) {
             <option>Concluída</option>
           </select>
         </td>
+        <td>{ createdUpdatedAt }</td>
         <td>
           <button
             type="button"
@@ -81,8 +81,8 @@ function Table({ task: { id, taskName, createdUpdatedAt, status }}) {
   const renderTaskEditClose = (
       <tr>
         <td>{ taskName }</td>
-        <td>{ createdUpdatedAt }</td>
         <td>{ status }</td>
+        <td>{ createdUpdatedAt }</td>
         <td>
           <button
             type="button"
@@ -91,6 +91,8 @@ function Table({ task: { id, taskName, createdUpdatedAt, status }}) {
           >
             Editar
           </button>
+        </td>
+        <td>
           <button
             type="button"
             id="delete-task-btn"
@@ -98,7 +100,7 @@ function Table({ task: { id, taskName, createdUpdatedAt, status }}) {
           >
             Excluir
           </button>
-        </td>
+        </td>  
       </tr>
     );
 
