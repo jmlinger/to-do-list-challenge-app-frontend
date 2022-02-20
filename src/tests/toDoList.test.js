@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import ToDoList from '../pages/ToDoList';
@@ -8,11 +8,12 @@ describe('Testes unitários da página de ToDoList.', () => {
   const taskNameId = 'taskName-input';
   const addTaskId = 'addTask-btn';
   const orderById = 'orderBy-select';
-  const defaultStatus = 'Pendente';
+  // const defaultStatus = 'Pendente';
   const taskList = [
-    'Tarefa 1'
+    'Tarefa 1',
+    'Tarefa 2',
+    'Tarefa 3',
   ];
-
 
   test('Verifica se a página contêm os elementos esperados após ser renderizada.', () => {
     renderWithRouterAndStore(<ToDoList />);
