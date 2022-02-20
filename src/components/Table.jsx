@@ -22,7 +22,7 @@ function Table({ task: { id, taskName, createdUpdatedAt, status }}) {
 
   function finishTaskEditing() {
     if (task.taskName && (task.taskName !== taskName || task.status !== status)) {
-      dispatch(updateTask({ 
+      dispatch(updateTask({
         ...task,
         createdUpdatedAt: moment().format("DD-MM-YYYY hh:mm:ss")
       }));

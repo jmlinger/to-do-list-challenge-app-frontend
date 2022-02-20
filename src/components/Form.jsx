@@ -42,7 +42,7 @@ function Form() {
   return (
     <form>
       <input
-        data-testid="task-input"
+        data-testid="taskName-input"
         type="text"
         name="task"
         value={ task.taskName }
@@ -50,6 +50,7 @@ function Form() {
         onChange={ handleChange }
       />
       <button
+        data-testid="addTask-btn"
         type="button"
         onClick={ () => createTask() }
       >
@@ -57,7 +58,11 @@ function Form() {
       </button>
     <label>
       Ordernar por:
-      <select name="orderBy" onChange={ handleChange } >
+      <select
+        data-testid="orderBy-select"
+        name="orderBy"
+        onChange={ handleChange }
+      >
         <option value="createdUpdatedAt">Data de criação</option>
         <option value="taskName">Nome da Tarefa</option>
         <option value="status">Status</option>

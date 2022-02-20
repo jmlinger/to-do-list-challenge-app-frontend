@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import App from '../App';
-import renderWithRouter from './utils/renderWithRouter';
 import { MemoryRouter } from 'react-router-dom';
+import { renderWithRouterAndStore } from './testConfig';
 
 describe('Testes unitários da página de login.', () => {
   const emailId = 'email-input';
@@ -47,12 +47,12 @@ describe('Testes unitários da página de login.', () => {
   });
   
   test('Verifica se ao clicar no botão de login a página é redirecionada.', () => {
-    const { history } = renderWithRouter(<App/>);
+    const { history } = renderWithRouterAndStore(<App/>, '/');
 
     const emailInput = screen.getByTestId(emailId);
     const passwordInput = screen.getByTestId(passwordId);
     const loginButton = screen.getByTestId(loginButtonId);
-    
+      
     userEvent.type(emailInput, genericEmail);
     userEvent.type(passwordInput, genericPassword);
     userEvent.click(loginButton);
